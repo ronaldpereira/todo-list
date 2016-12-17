@@ -1,7 +1,4 @@
-angular.module('todoController', [])
-
-    // inject the Todo service factory into our controller
-    .controller('mainController', function($scope, $http, Todos) {
+angular.module('todoController', []).controller('mainController', function($scope, $http, Todos) {
         $scope.formData = {};
 
         // GET
@@ -20,23 +17,30 @@ angular.module('todoController', [])
             // if form is empty, nothing will happen
             if (!$.isEmptyObject($scope.formData)) {
 
-                // call the create function from our service (returns a promise object)
+                // call the create function from the service (returns a promise object)
                 Todos.create($scope.formData)
-                    // if successful creation, call our get function to get all the new todos
                     .success(function(data) {
-                        $scope.formData = {}; // clear the form so our user is ready to enter another
-                        $scope.todos = data; // assign our new list of todos
+                        $scope.formData = {}; // clear the form so the user is ready to enter another
+                        $scope.todos = data; // assign the new list of todos
                     });
             }
+        };
+
+        // UPDATE
+        // edit a todo after checking it
+        $scope.updateTodo = function(id){
+            Todos.update(id)
+                .sucess(function(data){
+                    $scope.todos = data; // assign the new list of todos
+                });
         };
 
         // DELETE
         // delete a todo after checking it
         $scope.deleteTodo = function(id) {
             Todos.delete(id)
-                // if successful creation, call our get function to get all the new todos
                 .success(function(data) {
-                    $scope.todos = data; // assign our new list of todos
+                    $scope.todos = data; // assign the new list of todos
                 });
         };
     });
