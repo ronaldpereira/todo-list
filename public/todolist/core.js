@@ -17,7 +17,7 @@ function mainController($scope, $http) {
     $scope.createTodo = function() {
         $http.post('/api/todos', $scope.formData)
             .success(function(data) {
-                $scope.formData = {}; // clear the form so our user is ready to enter another
+                $scope.formData = {}; // clear the form so the user is ready to enter another
                 $scope.todos = data;
                 console.log(data);
             })
@@ -25,6 +25,10 @@ function mainController($scope, $http) {
                 console.log('Error: ' + data);
             });
     };
+
+    $scope.updateTodo = function(id) {
+        $http.update('/api/todos/' + id)
+    }
 
     // delete a todo after checking it
     $scope.deleteTodo = function(id) {
