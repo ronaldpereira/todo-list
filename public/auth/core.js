@@ -6,7 +6,7 @@ function mainController($scope, $http) {
     // when landing on the page, get all users and show them
     $http.get('/api/users')
         .success(function(data) {
-            $scope.users = data;
+            $scope.user = data;
             console.log(data);
         })
         .error(function(data) {
@@ -18,7 +18,7 @@ function mainController($scope, $http) {
         $http.post('/api/users', $scope.formData)
             .success(function(data) {
                 $scope.formData = {}; // clear the form so the user is ready to enter another
-                $scope.users = data;
+                $scope.user = data;
                 console.log(data);
             })
             .error(function(data) {

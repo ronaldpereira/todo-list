@@ -4,7 +4,7 @@ angular.module('userController', []).controller('mainController', function($scop
     // GET
     Users.get()
         .success(function(data) {
-            $scope.users = data;
+            $scope.user = data;
         });
 
     // POST
@@ -19,7 +19,7 @@ angular.module('userController', []).controller('mainController', function($scop
             Users.create($scope.formData)
                 .success(function(data) {
                     $scope.formData = {}; // clear the form so the user is ready to enter another
-                    $scope.users = data; // assign the new list of users
+                    $scope.user = data; // assign the new list of users
                 });
         }
     };
