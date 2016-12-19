@@ -103,24 +103,6 @@ var LoginModalController = {
 };
 
 
-function comparePws() {
-    var pw = document.getElementById("user-pw");
-    var pwrepeat = document.getElementById("user-pw-repeat");
-
-    if(pw.value.length == 0)
-        alert("You need to fill all the inputs");
-
-    else if(pw.value != pwrepeat.value)
-        alert("Yours passwords do not match");
-
-    else if(pw.value == pwrepeat.value){
-        alert("Your Registration was successfull");
-        setTimeout(function () {
-        window.location.href = "/";
-        }, 1000);
-    }
-}
-
 $(document).ready(function() {
     LoginModalController.initialize();
 });

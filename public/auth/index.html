@@ -7,10 +7,15 @@
     <title>To-do List Login</title>
 
     <link rel="stylesheet" href="./css/normalize.min.css">
-    <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-    <link rel="stylesheet" href="css/style.css">
-    <script type='text/javascript' src='./js/jquery.min.js'></script>
-    <script src="js/index.js"></script>
+    <link rel="stylesheet prefetch" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="text/javascript" src="./js/angular.min.js"></script> <!-- load angular -->
+    <script type="text/javascript" src="./js/jquery.min.js"></script> <!-- load jquery -->
+    <script type="text/javascript" src="./js/core.js"></script>
+    <script type="text/javascript" src="./js/controllers/user.js"></script> <!-- load user auth controller -->
+    <script type="text/javascript" src="./js/services/users.js"></script> <!-- load user service -->
+    <script type="text/javascript" src="./js/index.js"></script> <!-- load modal controller -->
+    <script type="text/javascript" src="./core.js"></script> <!-- load custom script -->
 </head>
 
 <body>
@@ -51,7 +56,7 @@
                                     </div>
                                 </div>
                                 <div class="simform__actions">
-                                    <input class="sumbit" name="commit" type="submit" ng-click="comparePws(); createUser(); $event.stopPropagation();" value="Create Account"/>
+                                    <input class="sumbit" name="commit" type="submit" onclick="createUser()" value="Create Account"/>
                                     <span class="simform__actions-sidetext">By creating an account you agree to our <a class="special" href="#" role="link">Terms & Privacy</a></span>
                                 </div>
                             </form>
@@ -77,8 +82,8 @@
                                     </div>
                                 </div>
                                 <div class="simform__actions">
-                                    <input class="sumbit" name="commit" type="submit" value="Log In" />
-                                    <span class="simform__actions-sidetext"><a class="special" role="link" href="#">Forgot your password?</a></span>
+                                    <input class="sumbit" type="submit" href="../auth/index.html" value="Log In" />
+                                    <span class="simform__actions-sidetext"><a class="special" role="link" href="../todolist/index.html">Forgot your password?</a></span>
                                 </div>
                             </form>
                         </div>
