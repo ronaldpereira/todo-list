@@ -14,7 +14,6 @@ angular.module('userController', []).controller('mainController', function($scop
         // validate the formData to make sure that something is there
         // if form is empty, nothing will happen
         if (!$.isEmptyObject($scope.formData)) {
-
             // call the create function from the service (returns a promise object)
             Users.create($scope.formData)
                 .success(function(data) {

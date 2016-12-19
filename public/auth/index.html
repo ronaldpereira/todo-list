@@ -51,7 +51,7 @@
                                     </div>
                                 </div>
                                 <div class="simform__actions">
-                                    <input class="sumbit" name="commit" type="submit" ng-click="createUser()" value="Create Account"/>
+                                    <input class="sumbit" name="commit" type="submit" ng-click="comparePws(); createUser(); $event.stopPropagation();" value="Create Account"/>
                                     <span class="simform__actions-sidetext">By creating an account you agree to our <a class="special" href="#" role="link">Terms & Privacy</a></span>
                                 </div>
                             </form>
@@ -89,23 +89,3 @@
     </div>
 </body>
 </html>
-
-<script>
-function comparePws() {
-    var pw = document.getElementById("user-pw");
-    var pwrepeat = document.getElementById("user-pw-repeat");
-
-    if(pw.value.length == 0)
-        alert("You need to fill all the inputs");
-
-    else if(pw.value != pwrepeat.value)
-        alert("Yours passwords do not match");
-
-    else if(pw.value == pwrepeat.value){
-        alert("Your Registration was successfull");
-        setTimeout(function () {
-        window.location.href = "/";
-        }, 1000);
-    }
-}
-</script>
