@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+<html ng-app="userauth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Optimize mobile viewport -->
@@ -9,6 +8,8 @@
     <link rel="stylesheet" href="./css/normalize.min.css">
     <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
     <link rel="stylesheet" href="css/style.css">
+    <script type='text/javascript' src='./js/jquery.min.js'></script>
+    <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -85,7 +86,7 @@
                                 <div class="sminputs">
                                     <div class="input full">
                                         <label class="string optional" for="user-name">Username *</label>
-                                        <input class="string optional" maxlength="255" id="user-email" placeholder="Username" type="text" size="50" required/>
+                                        <input class="string optional" maxlength="255" id="user-email" placeholder="Username" type="text" size="50" autofocus required/>
                                     </div>
                                 </div>
                                 <div class="sminputs">
@@ -126,9 +127,5 @@
             </div>
         </div>
     </div>
-    <script type='text/javascript' src='./js/jquery.min.js'></script>
-
-    <script src="js/index.js"></script>
-
 </body>
 </html>

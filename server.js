@@ -9,7 +9,7 @@ var port     = 8080;
 
 mongoose.connect(database.url);
 
-app.use(express.static(__dirname + '/public/todolist'));
+app.use(express.static(__dirname + '/public/auth'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
