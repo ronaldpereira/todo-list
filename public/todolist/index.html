@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"> <!-- load bootstrap -->
 
     <link rel="stylesheet" href="./style/bootstrap/css/bootstrap.min.css"> <!-- load bootstrap -->
+    <link rel="stylesheet" href="./style/style.css"> <!-- load my custom css -->
 
     <style>
         html                    { overflow-y:scroll; }
@@ -24,26 +25,28 @@
     <script type="text/javascript" src="./style/bootstrap/js/bootstrap.min.js"></script> <!-- load bootstrap script -->
 </head>
 
-<span><button style="float:right" type="button" class="btn btn-primary" id="authpage"><i class="glyphicon glyphicon-off"></i> Logout </button></span>
 
 <body ng-controller="mainController">
     <div class="container">
+        <span><button style="float:right" type="button" class="btn btn-primary" id="authpage"><i class="glyphicon glyphicon-off"></i> Logout </button></span>
+
         <div class="jumbotron text-center">
-            <h1>My To-do List <br><span><h3>You have a total of <span class="label label-info">{{ todos.length }}</span> itens</h3></span></h1>
-        </div>
+            <h1>My To-do List <br><center><span><h3>You have a total of <span class="label label-info">{{ todos.length }}</span> itens</h3></span></center></h1>
         <table>
             <div id="todo-list" class="row">
                 <div class="col-md-8">
                     <tbody>
                         <tr ng-repeat="todo in todos">
-                            <td>{{ todo.text }}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                            <div class="col-md-3">
-                            <td><button type="button" class="btn btn-primary" ng-click="deleteTodo(todo._id)"><i class="glyphicon glyphicon-ok"></i> Done </button></td>
-                            <td><button type="button" class="btn btn-primary" ng-click="createTodo();deleteTodo(todo._id)"><i class="glyphicon glyphicon-pencil"></i> Edit </button></td>
+                            <td><button type="button" class="btn btn-primary" ng-click="todo.done = !todo.done"><i class="glyphicon glyphicon-ok"></i></button></td>
+                            <td>&nbsp;&nbsp;&nbsp;</td>
+                            <td><span ng-if="todo.done" class="done-{{todo.done}}">{{ todo.text }}</span></td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <div class="col-md-1 col-md-offset-2">
+                            <td><button type="submit" class="btn btn-primary" ng-click="editTodo();deleteTodo(todo._id)"><i class="glyphicon glyphicon-pencil"></i> Edit </button></td>
+                            <td><button type="button" class="btn btn-primary" ng-click="deleteTodo(todo._id)"><i class="glyphicon glyphicon-trash"></i> Delete </button></td>
                             </div>
                         </tr>
                     </tbody>
-
                 </div>
             </div>
         </table>
@@ -52,27 +55,18 @@
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control input-lg text-center" placeholder="Insert or edit a todo task here" ng-model="formData.text">
+                        <input type="text" class="form-control input-lg text-center" placeholder="Insert or edit a todo task here" ng-model="formData.text" ng-model="formEditData.text">
                     </div>
-                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()">Add</button>
+                    <button type="submit" class="btn btn-primary btn-lg" ng-click="createTodo()"><i class="glyphicon glyphicon-plus"></i> Add </button>
                 </form>
             </div>
         </div>
 
     </div>
+</div>
 
 </body>
 </html>
-
-<style>
-    .done {
-        background-color: green;
-    }
-
-    .pending {
-        background-color: red;
-    }
-</style>
 
 <script type="text/javascript">
     document.getElementById("authpage").onclick = function () {

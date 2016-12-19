@@ -26,9 +26,18 @@ function mainController($scope, $http) {
             });
     };
 
-    $scope.updateTodo = function(id) {
-        $http.update('/api/todos/' + id)
-    }
+    // when submitting the add form, send the text to the node API
+    $scope.editTodo = function() {
+        $http.post('/api/todos', $scope.formData)
+            .success(function(data) {
+                $scope.formData = {}; // clear the form so the user is ready to enter another
+                $scope.todos = data;
+                console.log(data);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+    };
 
     // delete a todo after checking it
     $scope.deleteTodo = function(id) {

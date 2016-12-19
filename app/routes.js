@@ -1,7 +1,6 @@
-// load the todo model
 var Todo = require('./models/todo');
+var User = require('./models/user');
 
-// expose the routes to the app with module.exports
 module.exports = function(app) {
 
     // get all todos
@@ -32,11 +31,30 @@ module.exports = function(app) {
             Todo.find(function(err, todos) {
                 if (err)
                     res.send(err)
+
                 res.json(todos);
             });
         });
 
     });
+
+    // app.update('/api/todos/edit/:todo_id', function(req, res){
+    //     Todo.update({
+    //         text : req.body.text,
+    //         done : req.body.done
+    //     }, function(err, todo) {
+    //         if (err)
+    //             res.send(err);
+    //
+    //         // get and return all the todos after you create another
+    //         Todo.find(function(err, todos) {
+    //             if (err)
+    //                 res.send(err)
+    //
+    //             res.json(todos);
+    //         });
+    //     });
+    // });
 
     // delete a todo
     app.delete('/api/todos/:todo_id', function(req, res) {

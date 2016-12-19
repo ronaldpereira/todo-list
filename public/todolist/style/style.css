@@ -1,0 +1,38 @@
+.done-false {
+}
+
+.done-true {
+    display: inline-block;
+    position: relative;
+}
+
+.done-true:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin-top: -0.7em;
+    background: black;
+    transform-origin: center left;
+    animation: done-true 1.5s 0s cubic-bezier(.55, 0, .1, 1) 1;
+    transition: transform 1s cubic-bezier(.55, 0, .1, 1);
+}
+
+/* Little hover effect */
+
+.done-true:hover:after {
+    transform: scaleX(0);
+    transform-origin: center right;
+}
+
+/* Keyframes for initial animation */
+
+@keyframes done-true {
+    from {
+        transform: scaleX(0);
+    }
+    to {
+        transform: scaleX(1);
+    }
+}
