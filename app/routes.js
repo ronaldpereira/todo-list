@@ -3,6 +3,42 @@ var User = require('./models/user');
 
 module.exports = function(app) {
 
+    // get all users
+    app.get('/api/users', function(req, res) {
+
+        // use mongoose to get all users in the database
+        User.find(function(err, users) {
+            // if there is an error retrieving, send the error. nothing after res.send(err) will execute
+            if (err)
+                res.send(err)
+
+            res.json(users); // return all users in JSON format
+        });
+    });
+
+    // create user and send back all users after creation
+    app.post('/api/users', function(req, res) {
+
+        // create a user, information comes from AJAX request from Angular
+        User.create({
+            username : req.body.text,
+            email    : req.body.email,
+            password : req.body.password
+        }, function(err, user) {
+            if (err)
+                res.send(err);
+
+            // get and return all the users after you create another
+            User.find(function(err, users) {
+                if (err)
+                    res.send(err)
+
+                res.json(users);
+            });
+        });
+
+    });
+
     // get all todos
     app.get('/api/todos', function(req, res) {
 
@@ -37,24 +73,6 @@ module.exports = function(app) {
         });
 
     });
-
-    // app.update('/api/todos/edit/:todo_id', function(req, res){
-    //     Todo.update({
-    //         text : req.body.text,
-    //         done : req.body.done
-    //     }, function(err, todo) {
-    //         if (err)
-    //             res.send(err);
-    //
-    //         // get and return all the todos after you create another
-    //         Todo.find(function(err, todos) {
-    //             if (err)
-    //                 res.send(err)
-    //
-    //             res.json(todos);
-    //         });
-    //     });
-    // });
 
     // delete a todo
     app.delete('/api/todos/:todo_id', function(req, res) {
