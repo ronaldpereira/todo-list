@@ -2,10 +2,12 @@
 ##Author : Ronald Pereira
 
 Using: MEAN
-> - MongoDB
-> - ExpressJS
-> - AngularJS
-> - NodeJS
+```
+- MongoDB
+- ExpressJS
+- AngularJS
+- NodeJS
+```
 
 ## How to use it:
 Go to the project directory and type in your terminal:
