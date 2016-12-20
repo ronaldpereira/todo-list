@@ -19,7 +19,12 @@ app.use(methodOverride());
 // routes
 require('./app/routes.js')(app);
 
+// make '/app/auth' the main page
+app.get('/', function (req, res) {
+    return res.redirect('/app/auth');
+});
+
 // listen (start app with node server.js)
 app.listen(port);
 console.log("App listening on port : " + port);
-console.log("Access http://localhost:" + port + "/app/auth on your internet navigator");
+console.log("Access http://localhost:" + port + " on your internet navigator");
