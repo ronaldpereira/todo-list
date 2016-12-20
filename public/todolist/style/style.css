@@ -12,7 +12,7 @@
     display: block;
     width: 100%;
     height: 2px;
-    margin-top: -0.7em;
+    margin-top: -0.55em;
     background: black;
     transform-origin: center left;
     animation: done-true 1.5s 0s cubic-bezier(.55, 0, .1, 1) 1;
