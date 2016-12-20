@@ -33,6 +33,7 @@
 
         <div class="jumbotron text-center">
             <h1>My To-do List <br><center><span><h3>You have a total of <span class="label label-info">{{ todos.length }}</span> itens</h3></span></center></h1>
+        </div>
         <table>
             <div id="todo-list" class="row">
                 <div class="col-md-8">
@@ -40,7 +41,7 @@
                         <tr ng-repeat="todo in todos">
                             <td><button type="button" class="btn btn-primary" ng-click="todo.done = !todo.done"><i class="glyphicon glyphicon-ok"></i></button></td>
                             <td>&nbsp;&nbsp;&nbsp;</td>
-                            <td><span ng-if="todo.done" class="done-{{todo.done}}">{{ todo.text }}</span></td>
+                            <td><h4><span ng-if="todo.done" class="done-{{todo.done}}">{{ todo.text }}</span></h4></td>
                             <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                             <div class="col-md-1 col-md-offset-2">
                             <td><button type="submit" class="btn btn-primary" ng-click="editTodo();deleteTodo(todo._id)"><i class="glyphicon glyphicon-pencil"></i> Edit </button></td>
@@ -62,15 +63,12 @@
                 </form>
             </div>
         </div>
-
     </div>
-</div>
-
 </body>
 </html>
 
 <script type="text/javascript">
     document.getElementById("authpage").onclick = function () {
-        location.href = "http://localhost:8080/";
+        location.href = "http://localhost:8080/app/auth";
     };
 </script>
