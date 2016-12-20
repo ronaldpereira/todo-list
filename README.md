@@ -12,7 +12,7 @@ Using: MEAN
 ## Attention:
 You *MUST* have the node, express and MongoDB installed in your machine to run this application.
 
-## How to use it:
+## How to use it on a Linux:
 Go to the project directory and type in your terminal:
 
 > $ make all
