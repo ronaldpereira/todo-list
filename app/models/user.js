@@ -17,13 +17,4 @@ userSchema.methods.verifyPassword = function(password) {
     return bcrypt.compareSync(password, this.user.password);
 };
 
-userSchema.methods.updateUser = function(request, response){
-
-	this.user.name = request.body.name;
-	this.user.save();
-	response.redirect('/user');
-};
-
-
-
 module.exports = mongoose.model('User', userSchema);

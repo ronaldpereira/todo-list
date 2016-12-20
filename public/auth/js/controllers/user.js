@@ -1,13 +1,11 @@
 angular.module('userController', []).controller('mainController', function($scope, $http, Users) {
     $scope.formData = {};
 
-    // GET
     Users.get()
         .success(function(data) {
             $scope.user = data;
         });
 
-    // POST
     // when submitting the add form, send the text to the node API
     $scope.createUser = function() {
 

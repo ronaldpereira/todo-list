@@ -24,6 +24,10 @@ app.get('/', function (req, res) {
     return res.redirect('/app/auth');
 });
 
+app.get('/app/?', function (req, res) {
+    return res.redirect('/app/todolist');
+});
+
 // listen (start app with node server.js)
 app.listen(port);
 console.log("App listening on port : " + port);
