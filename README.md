@@ -9,6 +9,9 @@ Using: MEAN
 - NodeJS
 ```
 
+## Attention:
+You *MUST* have the node, express and MongoDB installed in your machine to run this application.
+
 ## How to use it:
 Go to the project directory and type in your terminal:
 
