@@ -9,7 +9,7 @@ var port     = 8080;
 
 mongoose.connect(database.url);
 
-app.use(express.static(__dirname + '/public/auth'));
+app.use('/app', express.static(__dirname + '/public'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
@@ -22,3 +22,4 @@ require('./app/routes.js')(app);
 // listen (start app with node server.js)
 app.listen(port);
 console.log("App listening on port : " + port);
+console.log("Access http://localhost:"+port+"/app/auth on your navigator");
