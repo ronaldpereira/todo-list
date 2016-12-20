@@ -16,7 +16,6 @@ angular.module('todoController', []).controller('mainController', function($scop
         // validate the formData to make sure that something is there
         // if form is empty, nothing will happen
         if (!$.isEmptyObject($scope.formData)) {
-
             // call the create function from the service (returns a promise object)
             Todos.create($scope.formData)
                 .success(function(data) {
@@ -26,28 +25,18 @@ angular.module('todoController', []).controller('mainController', function($scop
         }
     };
 
-    $scope.editTodo = function() {
+    $scope.editTodo = function(id) {
 
         // validate the formData to make sure that something is there
         // if form is empty, nothing will happen
-        if (!$.isEmptyObject($scope.formData)) {
-
-            // call the create function from the service (returns a promise object)
-            Todos.create($scope.formData)
+        if (!$.isEmptyObject($scope.formData.text)) {
+            // call the update function from the service (returns a promise object)
+            Todos.update(id, $scope.formData)
                 .success(function(data) {
                     $scope.formData = {}; // clear the form so the user is ready to enter another
                     $scope.todos = data; // assign the new list of todos
                 });
         }
-    };
-
-    // UPDATE
-    // edit a todo after checking it
-    $scope.updateTodo = function(id){
-        Todos.update(id)
-            .sucess(function(data){
-                $scope.todos = data; // assign the new list of todos
-            });
     };
 
     // DELETE
