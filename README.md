@@ -1,5 +1,5 @@
 # To-do List
-##Author : Ronald Pereira
+## Author : Ronald Pereira
 
 Using: MEAN
 ```
